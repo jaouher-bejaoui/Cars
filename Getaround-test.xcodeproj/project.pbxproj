@@ -15,9 +15,13 @@
 		07EA837A2C24A539007F37AE /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA83792C24A539007F37AE /* Car.swift */; };
 		07EA837C2C24A613007F37AE /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA837B2C24A613007F37AE /* Rating.swift */; };
 		07EA837E2C24A62F007F37AE /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA837D2C24A62F007F37AE /* Owner.swift */; };
-		07EA83802C24AA63007F37AE /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA837F2C24AA63007F37AE /* MainViewViewModel.swift */; };
-		07EA83852C257C04007F37AE /* CarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA83842C257C04007F37AE /* CarImageView.swift */; };
+		07EA83802C24AA63007F37AE /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA837F2C24AA63007F37AE /* MainViewModel.swift */; };
+		07EA83852C257C04007F37AE /* GenericImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA83842C257C04007F37AE /* GenericImageView.swift */; };
 		07EA83872C257DA5007F37AE /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA83862C257DA5007F37AE /* RatingView.swift */; };
+		07EA83892C295A66007F37AE /* CarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA83882C295A65007F37AE /* CarDetailsView.swift */; };
+		07EA838B2C295A95007F37AE /* CarDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA838A2C295A95007F37AE /* CarDetailsViewModel.swift */; };
+		07EA838D2C295D3A007F37AE /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA838C2C295D3A007F37AE /* PriceView.swift */; };
+		07EA838F2C2966F3007F37AE /* OwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA838E2C2966F3007F37AE /* OwnerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +35,13 @@
 		07EA83792C24A539007F37AE /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		07EA837B2C24A613007F37AE /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		07EA837D2C24A62F007F37AE /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
-		07EA837F2C24AA63007F37AE /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
-		07EA83842C257C04007F37AE /* CarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarImageView.swift; sourceTree = "<group>"; };
+		07EA837F2C24AA63007F37AE /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		07EA83842C257C04007F37AE /* GenericImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericImageView.swift; sourceTree = "<group>"; };
 		07EA83862C257DA5007F37AE /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		07EA83882C295A65007F37AE /* CarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsView.swift; sourceTree = "<group>"; };
+		07EA838A2C295A95007F37AE /* CarDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewModel.swift; sourceTree = "<group>"; };
+		07EA838C2C295D3A007F37AE /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
+		07EA838E2C2966F3007F37AE /* OwnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +98,8 @@
 		07EA83732C24A4B7007F37AE /* viewModels */ = {
 			isa = PBXGroup;
 			children = (
-				07EA837F2C24AA63007F37AE /* MainViewViewModel.swift */,
+				07EA837F2C24AA63007F37AE /* MainViewModel.swift */,
+				07EA838A2C295A95007F37AE /* CarDetailsViewModel.swift */,
 			);
 			path = viewModels;
 			sourceTree = "<group>";
@@ -99,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				07EA83662C24A33A007F37AE /* MainView.swift */,
+				07EA83882C295A65007F37AE /* CarDetailsView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -124,8 +134,10 @@
 		07EA83832C257BED007F37AE /* components */ = {
 			isa = PBXGroup;
 			children = (
-				07EA83842C257C04007F37AE /* CarImageView.swift */,
+				07EA83842C257C04007F37AE /* GenericImageView.swift */,
 				07EA83862C257DA5007F37AE /* RatingView.swift */,
+				07EA838E2C2966F3007F37AE /* OwnerView.swift */,
+				07EA838C2C295D3A007F37AE /* PriceView.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -201,14 +213,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				07EA83782C24A500007F37AE /* APIService.swift in Sources */,
-				07EA83852C257C04007F37AE /* CarImageView.swift in Sources */,
+				07EA838B2C295A95007F37AE /* CarDetailsViewModel.swift in Sources */,
+				07EA83852C257C04007F37AE /* GenericImageView.swift in Sources */,
 				07EA837E2C24A62F007F37AE /* Owner.swift in Sources */,
 				07EA83872C257DA5007F37AE /* RatingView.swift in Sources */,
-				07EA83802C24AA63007F37AE /* MainViewViewModel.swift in Sources */,
+				07EA83802C24AA63007F37AE /* MainViewModel.swift in Sources */,
 				07EA83672C24A33A007F37AE /* MainView.swift in Sources */,
+				07EA83892C295A66007F37AE /* CarDetailsView.swift in Sources */,
+				07EA838D2C295D3A007F37AE /* PriceView.swift in Sources */,
 				07EA837C2C24A613007F37AE /* Rating.swift in Sources */,
 				07EA837A2C24A539007F37AE /* Car.swift in Sources */,
 				07EA83652C24A33A007F37AE /* Getaround_testApp.swift in Sources */,
+				07EA838F2C2966F3007F37AE /* OwnerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,28 +8,34 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject var viewModel = MainViewViewModel()
+    @StateObject var viewModel = MainViewModel()
     
     var body: some View {
         NavigationView {
             if let cars = viewModel.cars {
                 List {
                     ForEach(cars) { car in
-                        //NavigationLink(destination: colorCard.theme.mainColor) {
+                        ZStack {
                             listItem(car: car)
-                        //}
+                            NavigationLink(destination: CarDetailsView(viewModel: CarDetailsViewModel(car: car))) {
+                                EmptyView()
+                            }
+                            .opacity(0)
+
+                            
+                        }
                         
                     }
                     .listRowSeparator(.hidden)
                     .listRowBackground(
-                        RoundedRectangle(cornerRadius: 5)
+                        RoundedRectangle(cornerRadius: 8)
                             .foregroundColor(.white)
-                            .padding(8)
+                            .padding(4)
                     )
                 }
                 .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 0)
                 .listStyle(.plain)
-                .padding(4)
+                .padding(8)
             }
             else {
                 EmptyView()
@@ -48,7 +54,9 @@ extension MainView {
     @ViewBuilder
     func listItem(car: Car) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            CarImageView(urlString: car.pictureURL ?? "")
+            GenericImageView(urlString: car.pictureURL ?? "")
+                .scaledToFill()
+                .padding(.top, 4)
             
             HStack(alignment: .top) {
                 Text("\(car.brand ?? "") \(car.model ?? "")")
@@ -60,7 +68,7 @@ extension MainView {
             }
             Text("**\(car.pricePerDay ?? 0)€** per day")
         }
-        .padding(.vertical, 8)
+        .padding(8)
     }
 }
 

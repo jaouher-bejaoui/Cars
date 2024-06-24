@@ -1,5 +1,5 @@
 //
-//  CarImageView.swift
+//  GenericImageView.swift
 //  Getaround-test
 //
 //  Created by Jaouher  on 21/06/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CarImageView: View {
+struct GenericImageView: View {
     let urlString: String
     
     init(urlString: String) {
@@ -17,10 +17,11 @@ struct CarImageView: View {
     var body: some View {
         AsyncImage(url: URL(string: urlString)) { image in
             image.resizable()
+                .scaledToFit()
+                
         } placeholder: {
             ProgressView()
         }
-        .frame(width: .infinity, height: 200)
-        .clipShape(.rect(cornerRadius: 4))
+        .clipShape(.rect(cornerRadius: 8))
     }
 }

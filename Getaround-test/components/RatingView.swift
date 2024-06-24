@@ -19,7 +19,7 @@ struct RatingView: View {
     }
     
     var body: some View {
-        HStack(alignment: .bottom, spacing: 4) {
+        HStack(spacing: 0) {
             if isFullRatingView {
                 ForEach(0..<5) { index in
                     Image(systemName: imageName(for: index, value: average).0)
@@ -33,9 +33,10 @@ struct RatingView: View {
             Text(String(format:"%.1f", average))
             Text("(\(count))")
         }
-        .padding(4)
-        .background(.purple.opacity(0.3))
-        .cornerRadius(4)
+        .minimumScaleFactor(0.5)
+        .cornerRadius(8)
+        .scaledToFit()
+        .frame(width: .infinity)
     }
     
     func imageName(for starIndex: Int, value: Double) -> (String, Color) {
@@ -49,7 +50,6 @@ struct RatingView: View {
             return ("star.fill", .gray.opacity(0.3))
         }
     }
-    
 }
 
 #Preview {
