@@ -22,10 +22,10 @@ struct OwnerView: View {
                     .frame(width: 50, height: 50)
                     .aspectRatio(1.0, contentMode: .fit)
                     .clipShape(.circle)
-                    .shadow(radius: 2)
+                    .shadow(radius: ViewSizes.xxSmall.rawValue)
             }
             
-            VStack(alignment: .leading, spacing: 2) {
+            VStack(alignment: .leading, spacing: ViewSizes.xxSmall.rawValue) {
                 Text(owner.name ?? "")
                 if let average = owner.rating?.average,
                    let count = owner.rating?.count {
@@ -39,7 +39,7 @@ struct OwnerView: View {
         .frame(width: .infinity)
         .padding(12)
         .overlay(
-            RoundedRectangle(cornerRadius: 8)
+            RoundedRectangle(cornerRadius: ViewSizes.small.rawValue)
                 .stroke(.gray.opacity(0.5), lineWidth: 1)
         )
     }

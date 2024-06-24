@@ -31,7 +31,10 @@ struct RatingView: View {
                     .foregroundColor(.yellow)
             }
             Text(String(format:"%.1f", average))
+                .bold()
+                .foregroundColor(.gray)
             Text("(\(count))")
+                .foregroundColor(.gray)
         }
         .minimumScaleFactor(0.5)
         .cornerRadius(8)

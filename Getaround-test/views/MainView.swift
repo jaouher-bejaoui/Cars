@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct MainView: View {
     @StateObject var viewModel = MainViewModel()
+    @FetchRequest(
+        entity: Favorites.entity(),
+        sortDescriptors: [NSSortDescriptor(key: "carId", ascending: true)]
+      ) var items: FetchedResults<Favorites>
     
     var body: some View {
         NavigationView {
@@ -21,21 +26,18 @@ struct MainView: View {
                                 EmptyView()
                             }
                             .opacity(0)
-
-                            
                         }
-                        
                     }
                     .listRowSeparator(.hidden)
                     .listRowBackground(
-                        RoundedRectangle(cornerRadius: 8)
+                        RoundedRectangle(cornerRadius: ViewSizes.small.rawValue)
                             .foregroundColor(.white)
-                            .padding(4)
+                            .padding(ViewSizes.xSmall.rawValue)
                     )
                 }
                 .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 0)
                 .listStyle(.plain)
-                .padding(8)
+                .padding(ViewSizes.small.rawValue)
             }
             else {
                 EmptyView()
@@ -50,13 +52,18 @@ struct MainView: View {
 }
 
 extension MainView {
-    
     @ViewBuilder
     func listItem(car: Car) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
-            GenericImageView(urlString: car.pictureURL ?? "")
-                .scaledToFill()
-                .padding(.top, 4)
+        VStack(alignment: .leading, spacing: ViewSizes.small.rawValue) {
+            ZStack(alignment: .topTrailing) {
+                if let url = car.pictureURL {
+                    GenericImageView(urlString: url)
+                        .scaledToFill()
+                        .padding(.top, ViewSizes.xSmall.rawValue)
+                    FavoriteImage(isLiked: viewModel.isFavorite(car: car, favorites: Array(items)))
+                        .padding(ViewSizes.small.rawValue)
+                }
+            }
             
             HStack(alignment: .top) {
                 Text("\(car.brand ?? "") \(car.model ?? "")")
@@ -68,7 +75,7 @@ extension MainView {
             }
             Text("**\(car.pricePerDay ?? 0)€** per day")
         }
-        .padding(8)
+        .padding(ViewSizes.small.rawValue)
     }
 }
 

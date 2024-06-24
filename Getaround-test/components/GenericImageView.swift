@@ -15,13 +15,23 @@ struct GenericImageView: View {
     }
     
     var body: some View {
-        AsyncImage(url: URL(string: urlString)) { image in
-            image.resizable()
-                .scaledToFit()
-                
-        } placeholder: {
-            ProgressView()
+        AsyncImage(url: URL(string: urlString)) { phase in
+            switch phase {
+            case .empty:
+                ProgressView()
+            case .success(let image):
+                phase.image?.resizable()
+                    .scaledToFit()
+            default:
+                Image(systemName: "photo")
+                    .frame(maxWidth: .infinity)
+            }
         }
-        .clipShape(.rect(cornerRadius: 8))
+        .clipShape(.rect(cornerRadius: ViewSizes.small.rawValue))
     }
 }
+
+#Preview {
+    GenericImageView(urlString: "https://www.google.c")
+}
+

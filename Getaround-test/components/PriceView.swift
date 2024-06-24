@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PriceView: View {
     var price: Int
-    var numberOfDays: Int = Int.random(in: 2..<15)
+    var numberOfDays: Int = 7
     
     init(price: Int) {
         self.price = price*numberOfDays
@@ -26,15 +26,15 @@ struct PriceView: View {
             }
             .padding(12)
             .overlay(
-                RoundedRectangle(cornerRadius: 8)
+                RoundedRectangle(cornerRadius: ViewSizes.small.rawValue)
                     .stroke(.gray.opacity(0.5), lineWidth: 1)
             )
+            
             Image(systemName: "info.circle.fill")
                 .foregroundColor(.purple)
-                .padding(-8)
+                .padding(-ViewSizes.small.rawValue)
         }
     }
-    
 }
 
 #Preview {

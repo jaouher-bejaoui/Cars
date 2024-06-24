@@ -1,22 +1,14 @@
 //
-//  APIService.swift
+//  WebServices.swift
 //  Getaround-test
 //
-//  Created by Jaouher  on 20/06/2024.
+//  Created by Jaouher  on 24/06/2024.
 //
 
 import Foundation
 import Combine
 
-enum NetworkError: Error {
-    case badUrl
-    case invalidRequest
-    case badResponse
-    case badStatus
-    case failedToDecodeResponse
-}
-
-class APIService {
+class WebServices {
     private let baseURL = "https://raw.githubusercontent.com/drivy/jobs/master/mobile/api/cars.json"
     
     func downloadData<T: Codable>() async -> T? {

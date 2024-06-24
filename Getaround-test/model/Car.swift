@@ -15,6 +15,7 @@ struct Car: Identifiable, Codable {
     let pricePerDay: Int?
     let rating: Rating?
     let owner: Owner?
+    let isLiked: Bool = false
 
     init(id: String?,
          brand: String?,
