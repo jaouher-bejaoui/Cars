@@ -13,19 +13,18 @@ class MainViewModel: ObservableObject {
     private let webServices = WebServices()
     private let baseURL = "https://raw.githubusercontent.com/drivy/jobs/master/mobile/api/cars.json"
     
+    @Published var isLoading: Bool = true
     @Published var cars: [Car]?
-    
-    @MainActor func fetchData() async {
-        print("fetchData")
+}
+
+extension MainViewModel: MainViewModelProtocol {
+    func fetchData() async {
         guard let result: [Car] = await webServices.downloadData()
         else {
-            print("error")
+            isLoading = false
             return
         }
         cars = result
-    }
-    
-    func isFavorite(car: Car, favorites: [Favorites]) -> Bool {
-        favorites.contains(where: { $0.carId == car.id })
+        isLoading = false
     }
 }

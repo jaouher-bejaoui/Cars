@@ -13,11 +13,6 @@ struct CarDetailsView: View {
     
     @StateObject var viewModel: CarDetailsViewModel
     
-    @FetchRequest(
-        entity: Favorites.entity(),
-        sortDescriptors: [NSSortDescriptor(key: "carId", ascending: true)]
-    ) var items: FetchedResults<Favorites>
-    
     var body: some View {
         VStack(alignment: .leading) {
             GenericImageView(urlString: viewModel.car.pictureURL ?? "")
@@ -61,43 +56,6 @@ struct CarDetailsView: View {
                         .foregroundColor(.purple)
                 }
             }
-            
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    addOrRemoveToFavorite()
-                } label: {
-                    FavoriteImage(isLiked: isExists())
-                }
-            }
-            
         }
-    }
-}
-
-// MARK: Core Data Operations
-extension CarDetailsView {
-    func addOrRemoveToFavorite() {
-        if isExists() {
-            // if the carId exists in Favorites DB => delete it
-            guard let itemToDelete = items.first(where: {
-                $0.carId == viewModel.car.id
-            }) else {
-                return
-            }
-            moc.delete(itemToDelete)
-        } else {
-            // else, add it to DB
-            let favorite = Favorites(context: moc)
-            favorite.carId = viewModel.car.id
-        }
-        do {
-            try self.moc.save()
-        } catch {
-            print("whoops \(error.localizedDescription)")
-        }
-    }
-    
-    func isExists() -> Bool {
-        items.contains(where: { $0.carId == viewModel.car.id })
     }
 }
