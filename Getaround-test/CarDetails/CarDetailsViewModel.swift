@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CarDetailsViewModel: ObservableObject, CarDetailsViewModelProtocol {
+class CarDetailsViewModel: ObservableObject {
     @Published var car: Car
     
     init(car: Car) {

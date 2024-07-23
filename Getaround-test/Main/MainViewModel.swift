@@ -15,9 +15,7 @@ class MainViewModel: ObservableObject {
     
     @Published var isLoading: Bool = true
     @Published var cars: [Car]?
-}
 
-extension MainViewModel: MainViewModelProtocol {
     func fetchData() async {
         guard let result: [Car] = await webServices.downloadData()
         else {
